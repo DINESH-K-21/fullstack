@@ -3,7 +3,6 @@ import { login, register } from '../services/authService.js';
 import { generateAccessToken, verifyRefreshToken } from '../utils/jwt.js';
 
 export const registerController = async (req, res) => {
-  console.log(req.body);
   
   try {
     const { name , email, password } = req.body;

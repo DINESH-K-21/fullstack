@@ -14,7 +14,7 @@ export const register = async (name, email, password) => {
   }
 
   const hashedPassword = await hashPassword(password);
-  console.log(hashedPassword,"jj");
+
   
 
   const user = await prisma.user.create({
@@ -24,13 +24,6 @@ export const register = async (name, email, password) => {
       password: hashedPassword,
     },
   });
-
-  console.log(user,"uu");
-  if (user) {
-    console.log("created");
-    
-  }
-  
 
   const accessToken = generateAccessToken(user);
   const refreshToken = generateRefreshToken(user);
